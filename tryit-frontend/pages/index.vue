@@ -30,7 +30,7 @@
 	<v-card>
 		<h2 align="center">¿Qué ofrecemos?</h2>
 		<p class="section-description">
-			El Try It! es el congreso tecnológico más grande de la UPM, con el objetivo de acercar las tendencias tecnológicas actuales a los participantes, así como ofrecer un contacto directo con las empresas más punteras.
+			El Try It! es el congreso tecnológico más grande de la UPM. Su objetivo de acercar las tendencias tecnológicas actuales a los participantes, así como ofrecer un contacto directo con las empresas más punteras del sector.
 		</p>
 		<div class="properties">
 			<div
@@ -41,8 +41,7 @@
 				<h3>Empresas punteras</h3>
 				<div class="description">
 					<p>
-						Como en otras ediciones, este año también contaremos con empresas líderes de la talla
-						de Google, Microsoft, IBM y muchas más.
+						Como en otras ediciones, este año también contaremos con empresas líderes de la talla de Google, Amazon, Microsoft, IBM y muchas más.
 					</p>
 				</div>
 				<div class="icon">
@@ -58,7 +57,7 @@
 				<h3>Temática diversa</h3>
 				<div class="description">
 					<p>
-						Podras asistir a ponencias y talleres de temas como las IAs generativas, el blockchain, la ciberseguridad, la ciencia de datos o las últimas innovaciones en computación.
+						Podrás asistir a ponencias y talleres con temas como las IAs generativas, el blockchain, la ciberseguridad, la ciencia de datos o las últimas innovaciones en computación.
 					</p>
 				</div>
 				<div class="icon">
@@ -93,7 +92,7 @@
 				<h3>Competiciones</h3>
 				<div class="description">
 					<p>
-						Desde competiciones deportivas, hasta matemáticas y de programación, y pasando por competiciones de videojuegos, el Try IT! te permite poner a prueba tu conocimiento en distintas áreas contra otros competidores. Atento a nuestras redes para más información!
+						Desde competiciones deportivas, hasta de matemáticas y de programación, el Try IT! te permite poner a prueba tu conocimiento en distintas áreas. ¡Apúntante al primer Hackathon del Try IT!
 					</p>
 				</div>
 				<div class="icon">
@@ -127,7 +126,7 @@
 				<div class="description">
 					<p>
 						El Try IT! se incluye en el Catálogo General de Reconocimiento de Créditos de la UPM.
-						Podrás obtener hasta 2 ECTS.
+						Podrás obtener hasta 2 ECTS por venir a las charlas a lo largo de la semana.
 					</p>
 				</div>
 				<div class="icon">
