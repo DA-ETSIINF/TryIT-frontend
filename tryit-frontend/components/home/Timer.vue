@@ -6,14 +6,13 @@
                 <table>
                     <thead>
                         <tr>
-                            <td colspan="4">
+                            <td colspan="7">
                                 <img class="tryit-logo" src="/img/imagotipo_claro_2.png"/>
                             </td>
                         </tr>
-
                         <tr>
-                            <td colspan="4">
-                                <h2>  Ya ha empezado el TryIT! 2024  </h2>
+                            <td colspan="7">
+                                <h2>  ¡Ya ha empezado la cuenta atrás!  </h2>
                             </td>
                         </tr>
                     </thead>
@@ -23,18 +22,27 @@
                                 <div class="time">{{timer.days}}</div>
                             </td>
                             <td>
+                                <p>:</p>
+                            </td>
+                            <td>
                                 <div class="time">{{timer.hours}}</div> 
+                            </td>
+                            <td>
+                                <p>:</p>
                             </td>
                             <td>
                                 <div class="time">{{timer.minutes}}</div>
                             </td>
                             <td>
+                                <p>:</p>
+                            </td>
+                            <td>
                                 <div class="time">{{timer.seconds}}</div>
                             </td>
                         </tr>
-                    </tbody>
+                    </tbody> 
                     <tfoot>
-                        <tr>
+                        <!-- <tr>
                             <td>
                                 <p>Días</p>
                             </td>
@@ -48,9 +56,9 @@
                                 <p>Segundos</p>
                             </td>
                             
-                        </tr>
-                        <td colspan="4">
-                        <h2>  18 a 22 de Marzo de 2024  </h2>
+                        </tr> -->
+                        <td colspan="7">
+                            <h2>  17 al 21 de Marzo de 2025  </h2>
                         </td>
                     </tfoot>
                 </table>
@@ -63,12 +71,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 
-.tryit-logo	{
-	height: auto;
-	width: 20vw;
+@font-face {
+    font-family: 'Lovelo-Black';
+    src: local('Lovelo-Black'), url('https://c.webfontfree.com/c.js?f=Lovelo-Black') format('truetype');
 }
 
-.grid   {
+/* Usar la fuente en el CSS */
+.timer_class h2 {
+    font-family: 'Lovelo-Black', sans-serif;
+    font-weight: normal;
+}
+
+
+.tryit-logo {
+    height: auto;
+    width: 20vw;
+}
+
+table {
+    width: 100%;  /* Asegura que la tabla ocupe todo el ancho disponible */
+    border-spacing: 0; /* Elimina espacio entre las celdas */
+    border-collapse: collapse; /* Asegura que las celdas estén pegadas */
+}
+
+
+td {
+    text-align: center;  /* Centra el contenido horizontalmente */
+    vertical-align: middle;  /* Centra el contenido verticalmente */
+    margin: 0;
+}
+
+.grid {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -78,10 +111,14 @@
     background-color: rgba(20,20,20,0.3);
 }
 
-.time   {
-    font-size: 10vw;
-    font-family: 'Fira Code', monospace;
+.time {
+    font-size: 8vw;
+    font-family: 'Fira Code', monoespace;
     font-weight: 700;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    display: inline-block;
 }
 
 .timer_intro {
@@ -106,23 +143,27 @@
     color: var(--primary-9);
     border: 50px;
     border-color: rgba(82, 78, 78, 0.75);
-    padding: 0.5vw;
+    padding-top: 0.2vw;
+    padding-right: 0.5vw;
+    padding-bottom: 0.2vw;
+    padding-left: 0.5vw;
     text-align: center; 
-    
 }
 
-.timer_class p  {
-    font-size: 1.5vw;
-    font-family: 'Fira Code', monospace;
+.timer_class p {
+    font-size: 8vw; /* Tamaño coherente con los números */
+    margin: 0;      /* Elimina los márgenes */
+    padding: 0;     /* Elimina el relleno */
+    line-height: 1; /* Ajusta la altura de línea para que sea consistente */
+    display: inline-block; /* Asegura que los dos puntos se alineen con los números */
 }
 
-.timer_class h2  {
+.timer_class h2 {
     font-size: 2.5vw;
-    font-family: 'Fira Code', monospace;
+    font-family: 'Lovelo-Black', sans-serif;
     font-weight: 700;
     color: var(--primary-9);
     text-shadow: 1px 1px 1px rgb(0, 0, 0);
-
 }
 
 </style>
@@ -134,9 +175,10 @@ import {
 import Vue from "vue";
 export default  Vue.extend({
     data()  {
-        return{
-            secondsLeft : (new Date("2025-03-17T11:00:00+01:00").getTime() - Date.now())/1000,
-        }
+        return {
+            // Nueva fecha de inicio: 17 de marzo de 2025 a las 11:00 AM
+            secondsLeft: (new Date("2025-03-17T11:00:00+01:00").getTime() - Date.now()) / 1000,
+        };
     },
     computed:   {
         timer(): TimerType {
