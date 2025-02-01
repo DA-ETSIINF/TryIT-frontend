@@ -15,7 +15,7 @@ export default {
 		dev: process.env.NODE_ENV !== "production",
 		//api: "https://api.congresotryit.es",
 		api: "https://tryit.upm.es",
-		edition: 2024
+		edition: 2025
 	},
 	
 	head: {

@@ -76,7 +76,7 @@
       };
     },
     async fetch() {
-      const response = await this.$axios.$get(process.env.api + `/api/editions/2024/tournaments`)
+      const response = await this.$axios.$get(process.env.api + `/api/editions/2025/tournaments`)
       this.tournaments = response
     },
     methods: {
