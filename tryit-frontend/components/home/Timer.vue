@@ -17,7 +17,7 @@
                             </td>
                         </tr>
                     </thead>
-                    <!-- <tbody>
+                    <tbody>
                         <tr>
                             <td>
                                 <div class="time">{{timer.days}}</div>
@@ -32,9 +32,9 @@
                                 <div class="time">{{timer.seconds}}</div>
                             </td>
                         </tr>
-                    </tbody> -->
+                    </tbody>
                     <tfoot>
-                        <!-- <tr>
+                        <tr>
                             <td>
                                 <p>Días</p>
                             </td>
@@ -48,7 +48,7 @@
                                 <p>Segundos</p>
                             </td>
                             
-                        </tr> -->
+                        </tr>
                         <td colspan="4">
                         <h2>  18 a 22 de Marzo de 2024  </h2>
                         </td>
@@ -135,7 +135,7 @@ import Vue from "vue";
 export default  Vue.extend({
     data()  {
         return{
-            secondsLeft : (new Date("2024-03-18T12:00:00+01:00").getTime() - Date.now())/1000,
+            secondsLeft : (new Date("2025-03-17T11:00:00+01:00").getTime() - Date.now())/1000,
         }
     },
     computed:   {
