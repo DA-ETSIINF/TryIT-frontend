@@ -7,7 +7,7 @@
         max-width="600px"
         fullscreen
         >
-        <v-card>
+        <v-card style="margin:100px;">
         <v-toolbar
           color="primary"
           dark
@@ -36,7 +36,7 @@
           </template>
         </v-toolbar>
         
-        <ul>
+        <ul style="padding:10px;">
           <li style="list-style: none; margin: 20px;">
             <v-sheet class="toggleTournament"
             @click="logClick"
