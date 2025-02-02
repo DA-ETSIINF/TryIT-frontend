@@ -99,6 +99,17 @@
             </v-tabs>
           </template>
         </v-toolbar>
+        
+        <div style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100px;
+            margin: 20px;
+            text-align: center;">
+              <p style="font-size: 20px;">Más información dentro de unos días</p>
+          </div><!-- Quitar cuando sepamos los horarios en general -->
+
 
         <v-tabs-items v-model="tab">
           <v-tab-item

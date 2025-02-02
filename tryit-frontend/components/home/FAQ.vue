@@ -57,7 +57,7 @@
                 ¿Cuándo es?
                 <v-icon class="menu-icon" style="color:white">mdi-menu-right</v-icon></h4>
               <p class="answer" style="color:white; padding-bottom: 5px; white-space:pre-line; display:none"> 
-                Del 18 al 22 de marzo.
+                Del 17 al 22 de marzo.
               </p>
             </v-sheet>
           </li>
