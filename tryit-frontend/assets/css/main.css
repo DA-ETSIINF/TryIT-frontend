@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'Lovelo-Black';
+    src: url('~assets/fonts/Lovelo-Black.woff2') format('woff2'),
+         url('~assets/fonts/Lovelo-Black.woff') format('woff');
+}
+
+/* Antes de añadir cualquier fuente a la carpeta de assets/fonts transformar el formato a woff y woff2 para que sea mas optimo. 
+Aqui la web para hacerlo: https://transfonter.org/ */
+
 :root {
 	--primary-1: #001e3d;
 	--primary-2: #07335e;
@@ -79,6 +88,8 @@
 
 	--roboto: "Roboto", sans-serif;
 	--source-sans-pro: "Source Sans Pro", sans-serif;
+	--lovelo-font: 'Lovelo-Black', sans-serif;
+	--now: 'Now', sans-serif;
 
 	--space-xxxs: 2px;
 	--space-xxs: 5px;
@@ -88,6 +99,7 @@
 	--space-l: 30px;
 	--space-xl: 40px;
 
+	/* añadir en funcion de lovelo-black en vez de roboto*/
 	--font-regular: 400;
 	--font-medium-roboto: 500;
 	--font-bold-source-sans-pro: 600;
@@ -141,46 +153,44 @@
 	}
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--lovelo-font);
+}
+
 h1 {
 	font-size: 34px;
-	font-family: var(--roboto);
-	font-weight: var(--font-bold-roboto);
+	font-weight: var(--font-bold-roboto); /* cambiar esto y en los H`s por lovelo-black y ajustar si fuese necesario */
 	color: var(--primary-1);
 	text-align: left;
 }
 
 h2 {
 	font-size: 30px;
-	font-family: var(--roboto);
 	font-weight: var(--font-medium-roboto);
 	color: var(--primary-2);
 }
 
 h3 {
 	font-size: 24px;
-	font-family: var(--roboto);
 	font-weight: var(--font-medium-roboto);
 	color: var(--primary-2);
 }
 
 h4 {
 	font-size: 18px;
-	font-family: var(--roboto);
 	font-weight: var(--font-medium-roboto);
 	color: var(--neutral-3);
 }
 
 h5 {
 	font-size: 16px;
-	font-family: var(--roboto);
 	font-weight: var(--font-medium-roboto);
 	color: var(--neutral-1);
 }
 
 h6 {
 	font-size: 13px;
-	font-family: var(--roboto);
-	font-weight: var(--font-bold-roboto);
+	font-weight: var(--font-bold-roboto); 
 	color: var(--neutral-1);
 	text-transform: uppercase;
 }
@@ -212,7 +222,8 @@ a {
 }
 
 p {
-	font-family: var(--source-sans-pro);
+	font-family: var(--now);
+	/* font-family: var(--source-sans-pro); */
 	color: var(--neutral-1);
 	padding-bottom: var(--space-s);
 }
