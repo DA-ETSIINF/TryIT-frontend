@@ -155,10 +155,8 @@
               Sorteo
             </v-tab>
             
-            <v-tab
-            v-if="!checkLogin()"
-            >
-              <v-menu offset-y>
+            <v-tab v-if="!checkLogin()" @click="menuOpen = !menuOpen">
+              <v-menu v-model="menuOpen" offset-y>
                 <template v-slot:activator="{ on, attrs }">
                   <span v-bind="attrs" v-on="on">
                     <v-icon left dark color="white" class="mx-3">
@@ -251,6 +249,12 @@ import * as Components from "../components";
 })
 
 export default class extends Vue {
+
+  data() {
+    return {
+      menuOpen: false, // Add this state to track the menu open/close status
+    };
+  }
   
 
   launchViewEcts()    {
