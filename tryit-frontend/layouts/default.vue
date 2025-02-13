@@ -160,12 +160,12 @@
             >
               <v-menu offset-y>
                 <template v-slot:activator="{ on, attrs }">
-                  <v-tab v-bind="attrs" v-on="on">
+                  <span v-bind="attrs" v-on="on">
                     <v-icon left dark color="white" class="mx-3">
                       mdi-login
                     </v-icon>
                     Iniciar Sesión
-                  </v-tab>
+                  </span>
                 </template>
 
                 <v-list>
