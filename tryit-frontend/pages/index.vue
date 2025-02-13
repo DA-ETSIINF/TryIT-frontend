@@ -26,6 +26,8 @@
 	<EventsViewer />
 	<TicketWarning />
 	<FAQ />
+	<LoginNoSIU />
+	<Login />
 
 	<v-card>
 		<h2 align="center">¿Qué ofrecemos?</h2>
@@ -212,6 +214,8 @@ import {
 	EventsViewer,
 	TicketWarning,
 	FAQ,
+	LoginNoSIU,
+	Login,
 } from "../components"
 //import { Context } from '@nuxt/types'
 
@@ -231,6 +235,8 @@ import {
 		EventsViewer,
 		TicketWarning,
 		FAQ,
+		LoginNoSIU,
+		Login,
 	},
 })
 

@@ -1,4 +1,8 @@
 <template>
+    <v-dialog
+      v-model="isLOGINVisible"
+      max-width="600px"
+    > 
       <v-alert v-if="$store.getters.getAdmin" type="success">Este usuario es administrador</v-alert>
       <v-alert v-else-if="$store.getters.getLogged && $store.getters.getScanner" type="success">Te has identificado correctamente. Puedes escanear.</v-alert>
       <v-alert v-else-if="$store.getters.getLogged" type="success">¡Te has identificado correctamente!</v-alert>
@@ -94,6 +98,7 @@
             </v-btn>
         </v-card-actions>
       </v-card>
+      </v-dialog>
 </template>
 
 <script>
@@ -105,6 +110,7 @@ export default {
     data()  {
         return{
             not_activated: false,
+            isLOGINVisible: false,
             confirmation_email_sent_ok: false,
             confirmation_email_sent_error: false,
             login_error: false,
@@ -169,5 +175,10 @@ export default {
                 isScanner ? this.$store.commit("giveScanAccess") : this.$store.commit("revokeScanAccess")
         },
     },
+    created() {
+      this.$nuxt.$on("toggleLogin", () => {
+        this.isLOGINVisible = !this.isLOGINVisible
+      })
+    }
 }
 </script>

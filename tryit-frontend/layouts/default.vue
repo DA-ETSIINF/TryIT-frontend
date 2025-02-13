@@ -155,23 +155,27 @@
               Sorteo
             </v-tab>
             
-            <v-tab
-              v-if="!checkLogin()"
-              @click="launchLogin()"
-            >
-              <v-icon 
-                left
-                dark
-                color="white"
-                class="mx-3"
-              >
-                mdi-login
-              </v-icon>
+            <v-menu offset-y>
+              <template v-slot:activator="{ on, attrs }">
+                <v-tab v-if="!checkLogin()" v-bind="attrs" v-on="on">
+                  <v-icon left dark color="white" class="mx-3">
+                    mdi-login
+                  </v-icon>
+                  Iniciar Sesión
+                </v-tab>
+              </template>
 
-              Iniciar Sesión
-            </v-tab>
+              <v-list>
+                <v-list-item @click="launchLogin()">
+                  <v-list-item-title>Usuario UPM</v-list-item-title>
+                </v-list-item>
+                <v-list-item @click="launchLoginNoSIU()">
+                  <v-list-item-title>Usuario NO UPM</v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
             <v-tab
-              v-else
+              v-if="checkLogin()"
               @click="launchLogout()"
             >
               <v-icon 
@@ -237,6 +241,8 @@ import * as Components from "../components";
 		QRReader: Components.QRReader,
     EventsViwer: Components.EventsViewer,
     FAQ: Components.FAQ,
+    LoginNoSIU: Components.LoginNoSIU,
+    Login: Components.Login,
   }
 })
 
@@ -263,6 +269,9 @@ export default class extends Vue {
   }
   launchQRReader()    {
       this.$nuxt.$emit("toggleQRReader")
+  }
+  launchLoginNoSIU()  {
+      this.$nuxt.$emit("toggleLogin")
   }
   launchLottery()   {
       this.$nuxt.$emit("toggleLottery")
