@@ -168,7 +168,9 @@ export default {
             const config = {
                 headers: {
                 Authorization: "Token " + userToken,
-                }
+                },
+                auth: userToken,
+                user: this.loginInfo["username"],
             }
             //since res is const(ant) we can't modify it, so we need to create a new variable
             const res2 = await axios.get(process.env.api + "/api/users/auth/", config)

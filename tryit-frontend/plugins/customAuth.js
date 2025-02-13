@@ -11,6 +11,7 @@ class CustomLoginStrategy extends BaseScheme {
       if (response && response.data) {
         this.$auth.setUser(response.data.user)
         this.$auth.setToken(response.data.token)
+        console.log("AUTH SHOUD BE FINISHED")
         return response
       }
     } catch (error) {
