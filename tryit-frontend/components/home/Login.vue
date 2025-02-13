@@ -164,7 +164,9 @@ export default {
             //this.$auth.loginWith("NoSIU", this.loginInfo)
 
             this.$auth.setUser(res.data.user)
-            this.$auth.setToken(res.data.token)
+
+            const strategy = this.$auth.strategy.name;
+            this.$auth.setToken(strategy, `Bearer ${res.data.token}`);
 
             console.log("STATUS: ")
             console.log(this.$auth.loggedIn);
