@@ -165,6 +165,7 @@ export default {
                 "password":password,
             }
             this.$auth.loginWith("NoSIU", data)
+            this.$auth.loggedIn = true
             
             const userToken = this.$store.getters.getToken
             const config = {
