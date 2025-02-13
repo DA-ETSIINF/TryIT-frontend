@@ -1,6 +1,4 @@
 import colors from 'vuetify/es5/util/colors'
-import * as fs from "fs";
-import * as path from "path";
 
 export default {
 	server: {
@@ -172,7 +170,11 @@ export default {
 						secure: true
 					}
 				}
-			}
+			},
+			NoSIU: {
+				scheme: '~/plugins/customAuth',
+				name: "NoSIU",
+			},
 		}
 	}
 }
