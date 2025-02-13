@@ -155,25 +155,29 @@
               Sorteo
             </v-tab>
             
-            <v-menu offset-y>
-              <template v-slot:activator="{ on, attrs }">
-                <v-tab v-if="!checkLogin()" v-bind="attrs" v-on="on">
-                  <v-icon left dark color="white" class="mx-3">
-                    mdi-login
-                  </v-icon>
-                  Iniciar Sesión
-                </v-tab>
-              </template>
+            <v-tab
+            v-if="!checkLogin()"
+            >
+              <v-menu offset-y>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-tab v-bind="attrs" v-on="on">
+                    <v-icon left dark color="white" class="mx-3">
+                      mdi-login
+                    </v-icon>
+                    Iniciar Sesión
+                  </v-tab>
+                </template>
 
-              <v-list>
-                <v-list-item @click="launchLogin()">
-                  <v-list-item-title>Usuario UPM</v-list-item-title>
-                </v-list-item>
-                <v-list-item @click="launchLoginNoSIU()">
-                  <v-list-item-title>Usuario NO UPM</v-list-item-title>
-                </v-list-item>
-              </v-list>
-            </v-menu>
+                <v-list>
+                  <v-list-item @click="launchLogin()">
+                    <v-list-item-title>Usuario UPM</v-list-item-title>
+                  </v-list-item>
+                  <v-list-item @click="launchLoginNoSIU()">
+                    <v-list-item-title>Usuario NO UPM</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+            </v-tab>
             <v-tab
               v-if="checkLogin()"
               @click="launchLogout()"
