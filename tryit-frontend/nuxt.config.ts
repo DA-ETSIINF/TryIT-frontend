@@ -171,10 +171,6 @@ export default {
 					}
 				}
 			},
-			NoSIU: {
-				scheme: '~/plugins/customAuth',
-				name: "NoSIU",
-			},
 		}
 	}
 }
