@@ -160,7 +160,11 @@ export default {
             var token = res.data.access_token
             this.$store.commit("login", token)
             this.$nuxt.$emit("logged")
-            this.$auth.loginWith("NoSIU")
+            var data = {
+                "username":username,
+                "password":password,
+            }
+            this.$auth.loginWith("NoSIU", data)
             
             const userToken = this.$store.getters.getToken
             const config = {
