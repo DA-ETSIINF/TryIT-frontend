@@ -162,7 +162,8 @@ export default {
             this.$nuxt.$emit("logged")
 
             console.log("peticion con auth local")
-            this.$auth.loginWith("local", this.loginInfo)
+            console.log(this.loginInfo)
+            await this.$auth.loginWith("local", this.loginInfo)
 
             console.log("STATUS: ")
             console.log(this.$auth.loggedIn);
