@@ -141,6 +141,8 @@ export default {
             var error1 = false
             var error2 = false
             //const xd = this
+            console.log("Data0")
+            console.log(data)
             const res = await axios.post(process.env.api + "/api/users/login/", data).catch(function (error){
                 if (error.response && error.response.status == 406) {
                     error2 = true
