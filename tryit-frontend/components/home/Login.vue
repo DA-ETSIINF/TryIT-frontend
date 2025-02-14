@@ -161,12 +161,8 @@ export default {
             this.$store.commit("login", token)
             this.$nuxt.$emit("logged")
 
+            console.log("peticion con auth local")
             this.$auth.loginWith("local", this.loginInfo)
-
-            this.$auth.setUser(res.data.user)
-
-            const strategy = this.$auth.strategy.name;
-            this.$auth.setToken(strategy, `Bearer ${res.data.token}`);
 
             console.log("STATUS: ")
             console.log(this.$auth.loggedIn);
