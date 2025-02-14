@@ -167,8 +167,11 @@ export default {
 
             console.log("peticion con auth local")
             console.log(this.loginInfo)
-            var data = {"username":this.loginInfo["username"], "password":this.loginInfo["password"]}
-            //await this.$auth.loginWith("local", data)
+            var data = {"username":this.loginInfo["username"], "password":this.loginInfo["password"]}ç
+            console.log(data)
+            console.log(data.username)
+            console.log(data.password)
+            await this.$auth.loginWith("local", data)
             
             console.log(res)
             console.log(res.data)
@@ -177,7 +180,7 @@ export default {
 
             this.$auth.setUser(res.data.user);
             console.log("AUTH")
-            console.log(this.$auth)
+            console.log(this.$auth.strategies)
             this.$auth.setToken("local", `Bearer ${res.data.access_token}`);
 
 
