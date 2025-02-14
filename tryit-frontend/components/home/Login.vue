@@ -169,6 +169,15 @@ export default {
             console.log(this.loginInfo)
             var data = {"username":this.loginInfo["username"], "password":this.loginInfo["password"]}
             await this.$auth.loginWith("local", data)
+            
+            console.log(res)
+            console.log(res.data)
+            console.log(res.data.user)
+            console.log(res.data.token)
+
+            this.$auth.setUser(res.data.user);
+            this.$auth.setToken("local", `Bearer ${res.data.token}`);
+
 
             console.log("STATUS: ")
             console.log(data);
