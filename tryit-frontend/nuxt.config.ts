@@ -173,7 +173,7 @@ export default {
 			},
 			local: {  // <-- You must define this manually
 				token: {
-				  property: "token",  // Where to find the token in the API response
+				  property: "access_token",  // Where to find the token in the API response
 				  global: true,       // Automatically attach token to axios requests
 				  type: "Bearer"
 				},
