@@ -173,10 +173,10 @@ export default {
             console.log(res)
             console.log(res.data)
             console.log(res.data.user)
-            console.log(res.data.token)
+            console.log(res.data.access_token)
 
             this.$auth.setUser(res.data.user);
-            this.$auth.setToken("local", `Bearer ${res.data.token}`);
+            this.$auth.setToken("local", `Bearer ${res.data.access_token}`);
 
 
             console.log("STATUS: ")
