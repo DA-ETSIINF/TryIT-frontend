@@ -29,46 +29,174 @@
 
 
 
-      <template v-slot:extension>
-        <v-tabs fixed-tabs optional class="mt-15" background-color="primary" hide-slider dark>
-          <v-tab v-if="hasTicket()" @click="launchEvViewer()">
-            <v-icon left dark color="white" class="mx-3">mdi-view-list</v-icon>
-            Mis charlas
-          </v-tab>
-          <v-tab v-if="!hasTicket()" @click="launchTicket()">
-            <v-icon left dark color="white" class="mx-3">mdi-ticket-confirmation</v-icon>
-            ENTRADAS
-          </v-tab>
-          <v-tab @click="launchTimeline()">
-            <v-icon left dark color="white" class="mx-3">mdi-calendar</v-icon>
-            HORARIOS
-          </v-tab>
-          <v-tab @click="launchTournaments()">
-            <v-icon left dark color="white" class="mx-3">mdi-trophy</v-icon>
-            TORNEOS
-          </v-tab>
-          <v-tab @click="launchFAQ()">
-            <v-icon left dark color="white" class="mx-3">mdi-frequently-asked-questions</v-icon>
-            FAQ
-          </v-tab>
-          <v-tab v-if="checkAdmin() || checkScanner()" @click="launchQRReader()">
-            <v-icon left dark color="white" class="mx-3">mdi-qrcode-scan</v-icon>
-            Escanear Entradas
-          </v-tab>
-          <v-tab v-if="checkAdmin()" @click="launchLottery()">
-            <v-icon left dark color="white" class="mx-3">mdi-clover</v-icon>
-            Sorteo
-          </v-tab>
-          <v-tab v-if="!checkLogin()" @click="launchLogin()">
-            <v-icon left dark color="white" class="mx-3">mdi-login</v-icon>
-            Iniciar Sesión
-          </v-tab>
-          <v-tab v-else @click="launchLogout()">
-            <v-icon left dark color="white" class="mx-3">mdi-logout</v-icon>
-            LOGOUT
-          </v-tab>
-        </v-tabs>
-      </template>
+      <template 
+          v-slot:extension
+        >
+          <v-tabs
+            fixed-tabs
+            optional
+            class="mt-15"
+            background-color="primary"
+            hide-slider
+            dark
+          >
+          <!--
+            <v-tab
+              @click="launchViewEcts()"
+            >
+              <v-icon 
+                left
+                dark
+                color="white"
+                class="mx-3"
+              >
+                mdi-cash-multiple
+              </v-icon>
+
+              CONSULTA CRÉDITOS
+            </v-tab>
+            -->
+            <v-tab
+              v-if="hasTicket()"
+              @click="launchEvViewer()"
+            >
+              <v-icon 
+                left
+                dark
+                color="white"
+                class="mx-3"
+              >
+                mdi-view-list
+              </v-icon>
+
+              Mis charlas
+            </v-tab>
+            <v-tab
+                v-if="!hasTicket()"
+              @click="launchTicket()"
+            >
+              <v-icon 
+                left
+                dark
+                color="white"
+                class="mx-3"
+              >
+                mdi-ticket-confirmation
+              </v-icon>
+
+              ENTRADAS
+            </v-tab>
+            <v-tab
+              @click="launchTimeline()"
+            >
+              <v-icon 
+                left
+                dark
+                color="white"
+                class="mx-3"
+              >
+                mdi-calendar
+              </v-icon>
+
+              HORARIOS
+            </v-tab>
+            <v-tab
+              @click="launchTournaments()"
+            >
+              <v-icon 
+                left
+                dark
+                color="white"
+                class="mx-3"
+              >
+                mdi-trophy
+              </v-icon>
+
+              TORNEOS
+            </v-tab>
+
+            <v-tab
+              @click="launchFAQ()"
+            >
+              <v-icon 
+                left
+                dark
+                color="white"
+                class="mx-3"
+              >
+                mdi-frequently-asked-questions
+              </v-icon>
+
+              FAQ
+            </v-tab>
+            
+            <v-tab
+              v-if="checkAdmin() || checkScanner()"
+              @click="launchQRReader()"
+            >
+              <v-icon 
+                left
+                dark
+                color="white"
+                class="mx-3"
+              >
+                mdi-qrcode-scan
+              </v-icon>
+              Escanear Entradas
+            </v-tab>
+            <v-tab
+              v-if="checkAdmin()"
+              @click="launchLottery()"
+            >
+              <v-icon 
+                left
+                dark
+                color="white"
+                class="mx-3"
+              >
+                mdi-clover
+              </v-icon>
+              Sorteo
+            </v-tab>
+            
+            <v-tab v-if="!checkLogin()" @click="menuOpen = !menuOpen">
+              <v-menu v-model="menuOpen" offset-y>
+                <template v-slot:activator="{ on, attrs }">
+                  <span v-bind="attrs" v-on="on">
+                    <v-icon left dark color="white" class="mx-3">
+                      mdi-login
+                    </v-icon>
+                    Iniciar Sesión
+                  </span>
+                </template>
+
+                <v-list>
+                  <v-list-item @click="launchLogin()">
+                    <v-list-item-title>Usuario UPM</v-list-item-title>
+                  </v-list-item>
+                  <v-list-item @click="launchLoginNoSIU()">
+                    <v-list-item-title>Usuario NO UPM</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+            </v-tab>
+            <v-tab
+              v-if="checkLogin()"
+              @click="launchLogout()"
+            >
+              <v-icon 
+                left
+                dark
+                color="white"
+                class="mx-3"
+              >
+                mdi-logout
+              </v-icon>
+
+              LOGOUT
+            </v-tab>
+          </v-tabs>
+        </template>
     </v-app-bar>
 
     <main>
@@ -130,8 +258,16 @@ import * as Components from "../components";
   }
 })
 export default class extends Vue {
-  launchViewEcts() {
-    this.$nuxt.$emit("toggleViewEcts");
+
+  data() {
+    return {
+      menuOpen: false, // Add this state to track the menu open/close status
+    };
+  }
+  
+
+  launchViewEcts()    {
+      this.$nuxt.$emit("toggleViewEcts")
   }
   launchTicket() {
     this.$nuxt.$emit("toggleTicketForm");
@@ -150,6 +286,9 @@ export default class extends Vue {
   }
   launchQRReader() {
     this.$nuxt.$emit("toggleQRReader");
+  }
+  launchLoginNoSIU()  {
+      this.$nuxt.$emit("toggleLogin")
   }
   launchLottery() {
     this.$nuxt.$emit("toggleLottery");

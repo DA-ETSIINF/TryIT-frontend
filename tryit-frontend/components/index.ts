@@ -12,5 +12,7 @@ export { default as History } from "./home/History.vue"
 export { default as EventsViewer } from "./home/EventsViewer.vue"
 export { default as TicketWarning } from "./home/TicketWarning.vue"
 export { default as FAQ } from "./home/FAQ.vue"
+export { default as LoginNoSIU} from "./home/LoginNoSIU.vue"
+export { default as Login} from "./home/Login.vue"
 
 

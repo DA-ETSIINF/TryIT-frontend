@@ -5,27 +5,29 @@
 				<!--<div class="welcome-image">
 				<img src="/img/welcome.jpg" alt="Try IT! congress" />
 			</div>-->
-				<div class="welcome-content">
-					<Timer class="timer"></Timer>
-				</div>
-
+			<div class="welcome-content">
+				<Timer class="timer"></Timer>
 			</div>
-
-		</v-card>
-		<!--<PopupTicket class="popup-button"></PopupTicket>-->
-
-		<!-- Menú de acciones posibles -->
-		<!-- Si no ponemos esto luego no se pueden abrir -->
-		<ViewEcts />
-		<PopupTicket />
-		<PopupLogin />
-		<Timeline />
-		<Tournaments />
-		<QRReader />
-		<PopupLottery />
-		<EventsViewer />
-		<TicketWarning />
-		<FAQ />
+			
+		</div>
+		
+	</v-card>
+	<!--<PopupTicket class="popup-button"></PopupTicket>-->
+	
+	<!-- Menú de acciones posibles -->
+	<!-- Si no ponemos esto luego no se pueden abrir -->
+	<ViewEcts />
+	<PopupTicket />
+	<PopupLogin />
+	<Timeline />
+	<Tournaments />
+	<QRReader />
+	<PopupLottery />
+	<EventsViewer />
+	<TicketWarning />
+	<FAQ />
+	<LoginNoSIU />
+	<Login />
 
 		<hr>
 		<section>
@@ -232,6 +234,8 @@ import {
 	EventsViewer,
 	TicketWarning,
 	FAQ,
+	LoginNoSIU,
+	Login,
 } from "../components"
 //import { Context } from '@nuxt/types'
 
@@ -251,6 +255,8 @@ import {
 		EventsViewer,
 		TicketWarning,
 		FAQ,
+		LoginNoSIU,
+		Login,
 	},
 })
 

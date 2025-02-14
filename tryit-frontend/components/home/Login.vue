@@ -1,4 +1,8 @@
 <template>
+    <v-dialog
+      v-model="isLOGINVisible"
+      max-width="600px"
+    > 
       <v-alert v-if="$store.getters.getAdmin" type="success">Este usuario es administrador</v-alert>
       <v-alert v-else-if="$store.getters.getLogged && $store.getters.getScanner" type="success">Te has identificado correctamente. Puedes escanear.</v-alert>
       <v-alert v-else-if="$store.getters.getLogged" type="success">¡Te has identificado correctamente!</v-alert>
@@ -94,6 +98,7 @@
             </v-btn>
         </v-card-actions>
       </v-card>
+      </v-dialog>
 </template>
 
 <script>
@@ -105,6 +110,7 @@ export default {
     data()  {
         return{
             not_activated: false,
+            isLOGINVisible: false,
             confirmation_email_sent_ok: false,
             confirmation_email_sent_error: false,
             login_error: false,
@@ -135,6 +141,8 @@ export default {
             var error1 = false
             var error2 = false
             //const xd = this
+            console.log("Data0")
+            console.log(data)
             const res = await axios.post(process.env.api + "/api/users/login/", data).catch(function (error){
                 if (error.response && error.response.status == 406) {
                     error2 = true
@@ -142,6 +150,8 @@ export default {
                 }
                 error1 = true
             });
+            console.log("Data 1")
+            console.log(data)
             if(error2){
                 this.not_activated = true
                 return;
@@ -154,13 +164,39 @@ export default {
             var token = res.data.access_token
             this.$store.commit("login", token)
             this.$nuxt.$emit("logged")
+
+            console.log("peticion con auth local")
+            console.log(this.loginInfo)
+            var data = {"username":this.loginInfo["username"], "password":this.loginInfo["password"]}
+            console.log(data)
+            console.log(data.username)
+            console.log(data.password)
+            await this.$auth.loginWith("local", data)
+            
+            console.log(res)
+            console.log(res.data)
+            console.log(res.data.user)
+            console.log(res.data.access_token)
+
+            this.$auth.setUser(res.data.user);
+            console.log("AUTH")
+            console.log(this.$auth.strategies)
+            this.$auth.setToken("local", `Bearer ${res.data.access_token}`);
+
+
+            console.log("STATUS: ")
+            console.log(data);
             
             const userToken = this.$store.getters.getToken
-            const config = {
+            var config = {
                 headers: {
                 Authorization: "Token " + userToken,
-                }
+                },
+                auth: userToken,
+                user: this.loginInfo["username"],
             }
+
+            console.log("AUTH B")
             //since res is const(ant) we can't modify it, so we need to create a new variable
             const res2 = await axios.get(process.env.api + "/api/users/auth/", config)
             let isAdmin = res2.data.isadmin == "True"
@@ -169,5 +205,10 @@ export default {
                 isScanner ? this.$store.commit("giveScanAccess") : this.$store.commit("revokeScanAccess")
         },
     },
+    created() {
+      this.$nuxt.$on("toggleLogin", () => {
+        this.isLOGINVisible = !this.isLOGINVisible
+      })
+    }
 }
 </script>
