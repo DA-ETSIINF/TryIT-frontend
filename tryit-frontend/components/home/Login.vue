@@ -167,7 +167,7 @@ export default {
 
             console.log("peticion con auth local")
             console.log(this.loginInfo)
-            var data = {"username":this.loginInfo["username"], "password":this.loginInfo["password"]}ç
+            var data = {"username":this.loginInfo["username"], "password":this.loginInfo["password"]}
             console.log(data)
             console.log(data.username)
             console.log(data.password)
