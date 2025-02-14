@@ -171,6 +171,22 @@ export default {
 					}
 				}
 			},
+			local: {  // <-- You must define this manually
+				token: {
+				  property: "token",  // Where to find the token in the API response
+				  global: true,       // Automatically attach token to axios requests
+				  type: "Bearer"
+				},
+				user: {
+				  property: "user",   // Where to find user data in the API response
+				},
+				endpoints: {
+					login: { url: "https://tryit.upm.es/api/users/login", method: "post" },
+					logout: false, // Logout is disabled
+					user: { url: "https://tryit.upm.es/api/users/auth", method: "get" }      
+				  }
+			}
+			
 		}
 	}
 }

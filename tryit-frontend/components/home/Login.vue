@@ -161,7 +161,7 @@ export default {
             this.$store.commit("login", token)
             this.$nuxt.$emit("logged")
 
-            //this.$auth.loginWith("NoSIU", this.loginInfo)
+            this.$auth.loginWith("local", this.loginInfo)
 
             this.$auth.setUser(res.data.user)
 
