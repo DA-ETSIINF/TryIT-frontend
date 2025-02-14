@@ -181,9 +181,9 @@ export default {
 				  property: "user",   // Where to find user data in the API response
 				},
 				endpoints: {
-					login: { url: "https://tryit.upm.es/api/users/login", method: "post" },
+					login: { url: "https://tryit.upm.es/api/users/login/", method: "post" },
 					logout: false, // Logout is disabled
-					user: { url: "https://tryit.upm.es/api/users/auth", method: "get" }      
+					user: { url: "https://tryit.upm.es/api/users/auth/", method: "get" }      
 				  }
 			}
 			
