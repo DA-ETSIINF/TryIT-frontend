@@ -168,13 +168,15 @@ export default {
             console.log(this.$auth.loggedIn);
             
             const userToken = this.$store.getters.getToken
-            const config = {
+            var config = {
                 headers: {
                 Authorization: "Token " + userToken,
                 },
                 auth: userToken,
                 user: this.loginInfo["username"],
             }
+
+            console.log("AUTH B")
             //since res is const(ant) we can't modify it, so we need to create a new variable
             const res2 = await axios.get(process.env.api + "/api/users/auth/", config)
             let isAdmin = res2.data.isadmin == "True"
