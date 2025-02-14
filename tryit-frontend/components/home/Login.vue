@@ -163,7 +163,8 @@ export default {
 
             console.log("peticion con auth local")
             console.log(this.loginInfo)
-            await this.$auth.loginWith("local", this.loginInfo)
+            var data = this.loginInfo
+            await this.$auth.loginWith("local", data)
 
             console.log("STATUS: ")
             console.log(this.$auth.loggedIn);
