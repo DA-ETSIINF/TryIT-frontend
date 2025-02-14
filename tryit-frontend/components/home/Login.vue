@@ -176,6 +176,8 @@ export default {
             console.log(res.data.access_token)
 
             this.$auth.setUser(res.data.user);
+            console.log("AUTH")
+            console.log(this.$auth)
             this.$auth.setToken("local", `Bearer ${res.data.access_token}`);
 
 
