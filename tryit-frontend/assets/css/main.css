@@ -90,6 +90,7 @@ Aqui la web para hacerlo: https://transfonter.org/ */
 	--source-sans-pro: "Source Sans Pro", sans-serif;
 	--lovelo-font: 'Lovelo-Black', sans-serif;
 	--now: 'Now', sans-serif;
+	--montserrat-arabic: 'Montserrat Arabic', sans-serif;
 
 	--space-xxxs: 2px;
 	--space-xxs: 5px;
@@ -167,19 +168,19 @@ h1 {
 h2 {
 	font-size: 30px;
 	font-weight: var(--font-medium-roboto);
-	color: var(--primary-2);
+	color: var(--primary-4);
 }
 
 h3 {
 	font-size: 24px;
 	font-weight: var(--font-medium-roboto);
-	color: var(--primary-2);
+	color: var(--primary-4);
 }
 
 h4 {
 	font-size: 18px;
 	font-weight: var(--font-medium-roboto);
-	color: var(--neutral-3);
+	color: var(--neutral-5);
 }
 
 h5 {
@@ -222,8 +223,7 @@ a {
 }
 
 p {
-	font-family: var(--now);
-	/* font-family: var(--source-sans-pro); */
+	font-family: var(--montserrat-arabic);
 	color: var(--neutral-1);
 	padding-bottom: var(--space-s);
 }

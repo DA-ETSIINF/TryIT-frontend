@@ -26,6 +26,7 @@ export default class Map extends Vue {}
     padding-bottom:50%;
     position:relative;
     height:0;
+	margin: 20px;
 }
 .map iframe{
     left:0;
