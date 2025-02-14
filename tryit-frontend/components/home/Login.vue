@@ -148,6 +148,8 @@ export default {
                 }
                 error1 = true
             });
+            console.log("Data 1")
+            console.log(data)
             if(error2){
                 this.not_activated = true
                 return;
