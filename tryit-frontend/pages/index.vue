@@ -5,29 +5,29 @@
 				<!--<div class="welcome-image">
 				<img src="/img/welcome.jpg" alt="Try IT! congress" />
 			</div>-->
-			<div class="welcome-content">
-				<Timer class="timer"></Timer>
+				<div class="welcome-content">
+					<Timer class="timer"></Timer>
+				</div>
+
 			</div>
-			
-		</div>
-		
-	</v-card>
-	<!--<PopupTicket class="popup-button"></PopupTicket>-->
-	
-	<!-- Menú de acciones posibles -->
-	<!-- Si no ponemos esto luego no se pueden abrir -->
-	<ViewEcts />
-	<PopupTicket />
-	<PopupLogin />
-	<Timeline />
-	<Tournaments />
-	<QRReader />
-	<PopupLottery />
-	<EventsViewer />
-	<TicketWarning />
-	<FAQ />
-	<LoginNoSIU />
-	<Login />
+
+		</v-card>
+		<!--<PopupTicket class="popup-button"></PopupTicket>-->
+
+		<!-- Menú de acciones posibles -->
+		<!-- Si no ponemos esto luego no se pueden abrir -->
+		<ViewEcts />
+		<PopupTicket />
+		<PopupLogin />
+		<Timeline />
+		<Tournaments />
+		<QRReader />
+		<PopupLottery />
+		<EventsViewer />
+		<TicketWarning />
+		<FAQ />
+		<LoginNoSIU />
+		<Login />
 
 		<hr>
 		<section>
@@ -38,8 +38,9 @@
 					Si eres alumno de la ETSIINF de la UPM, te concedemos 1 ECTS por venir a ayudar 27 horas
 					a lo largo de la semana del Congreso. <br><br>
 					<a class="voluntier-link"
-						href="https://docs.google.com/forms/d/e/1FAIpQLSfTisQjVRJ1p_J7BQzwgf9buO4Eyu9Mjifos1wc8SnC2O77gw/viewform" target="_blank" rel="noopener noreferrer">
-						<span class="link-text">¡Apúntate rellenando este cuestionario!</span> 
+						href="https://docs.google.com/forms/d/e/1FAIpQLSfTisQjVRJ1p_J7BQzwgf9buO4Eyu9Mjifos1wc8SnC2O77gw/viewform"
+						target="_blank" rel="noopener noreferrer">
+						<span class="link-text">¡Apúntate rellenando este cuestionario!</span>
 						<span class="cadena">
 							<img src="img/cadena.png" alt="Icono de cadena">
 						</span>
@@ -59,6 +60,23 @@
 				a los participantes, así como ofrecer un contacto directo con las empresas más
 				punteras del sector.
 			</p>
+
+			<template>
+				<v-container fluid class="video-container">
+					<v-row justify="center">
+						<v-col cols="12" md="10" lg="8" xl="6">
+							<v-responsive aspect-ratio="16/9">
+								<video class="video-player" controls>
+									<source src="/Trailer2025.mp4" type="video/mp4">
+									Tu navegador no soporta videos HTML5.
+								</video>
+							</v-responsive>
+						</v-col>
+					</v-row>
+				</v-container>
+			</template>
+
+
 			<div class="properties">
 				<div class="property" :class="{ active: paragraphActive === 'companies' }"
 					@click="paragraphActive = 'companies'">
@@ -201,6 +219,20 @@
 		<v-container fluid>
 			<v-card>
 				<h2>Ediciones anteriores</h2>
+				<template>
+					<v-container fluid class="video-container">
+						<v-row justify="center">
+							<v-col cols="12" md="10" lg="8" xl="6">
+								<v-responsive aspect-ratio="16/9">
+									<video class="video-player" controls>
+										<source src="/RecopilatorioTryIt.mp4" type="video/mp4">
+										Tu navegador no soporta videos HTML5.
+									</video>
+								</v-responsive>
+							</v-col>
+						</v-row>
+					</v-container>
+				</template>
 				<History />
 			</v-card>
 		</v-container>
@@ -572,6 +604,31 @@ h2 {
 		margin: 0 auto;
 	}
 
+	.video-player {
+		max-width: 1000px;
+		/* Limita el tamaño en pantallas grandes */
+		width: 100%;
+		/* Asegura que se adapte al contenedor */
+		height: auto;
+		border-radius: 8px;
+		/* Opcional para esquinas redondeadas */
+		display: block;
+	}
+
+	/* 🔹 Ajuste para pantallas pequeñas (móviles) */
+	@media screen and (max-width: 700px) {
+		.video-player {
+			max-width: 90%;
+			/* Asegura que no se desborde */
+			width: 90%;
+			height: auto;
+			margin: 0 auto;
+			/* Centra el video correctamente */
+		}
+	}
+
+
+
 	.property {
 		display: flex;
 		flex-direction: column;
@@ -611,15 +668,15 @@ h2 {
 	}
 }
 
-.voluntier-description{
+.voluntier-description {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	margin: 0 20px 0 20px 0;
 }
 
-@media screen and (max-width: 700px){
-	.voluntier-description{
+@media screen and (max-width: 700px) {
+	.voluntier-description {
 		flex-direction: column;
 	}
 }
@@ -632,7 +689,7 @@ h2 {
 	margin: 10px;
 }
 
-.link-text{
+.link-text {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -659,5 +716,45 @@ h2 {
 #personaje_señalando {
 	height: 200px;
 	width: auto;
+}
+
+.video-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px 0;
+}
+
+.video-player {
+	width: 100%;
+	height: 100%;
+	border-radius: 8px;
+	display: block;
+}
+
+/* 🔹 Ajuste para ESCRITORIO (PC) */
+@media screen and (min-width: 1024px) {
+
+	/* Se aplica en pantallas grandes */
+	.video-container {
+		max-width: 1200px;
+		/* Hace que el video sea más grande en PC */
+	}
+
+	.video-player {
+		max-width: 1200px;
+		/* Asegura que el video sea grande */
+	}
+}
+
+/* 🔹 Ajuste para MÓVILES */
+@media screen and (max-width: 700px) {
+	.video-container {
+		padding: 10px 0;
+	}
+
+	.video-player {
+		max-width: 100%;
+	}
 }
 </style>
